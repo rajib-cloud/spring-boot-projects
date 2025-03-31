@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<title>Register Page</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container mt-5">
+		<h3 class="text-center mb-4">Employee Register Page</h3>
+		<form th:action="@{/employee/save" method="post" class="border p-4 rounded shadow-sm">
+			<!--Name-->
+			<div class="mb-3">
+				<label for="empName" class="form-label">Name:</label>
+				<input type="text" id="empName" name="empName" class="form-control" required />
+
+			</div>
+			<!--Gender-->
+			<div class="mb-3">
+				<label for="empGen" class="form-label">Gender:</label>
+				<div>
+					<input type="radio" id="male" name="empGen" value="Male" class="form-check-input" />
+					<label for="male" class="form-check-label me-3">Male</label>
+
+					<input type="radio" id="female" name="empGen" value="FeMale" class="form-check-input" />
+					<label for="female" class="form-check-lebel me-3">Female</label>
+
+					<input type="radio" id="other" name="empGen" value="Other" class="form-check-input" />
+					<label for="other" class="form-check-label">Other</label>
+				</div>
+
+			</div>
+			<!--Salary-->
+			<div class="mb-3">
+				<label for="empSal" class="form-label">Salary:</label>
+				<input type="number" id="empSal" name="empSal" class="form-control" required />
+			</div>
+			<!--Department-->
+			<div class="mb-3">
+				<label for="empDept" class="form-label">Department:</label>
+				<select id="empDept" name="empDept" class="form-select" required>
+					<option value="">-SELECT-</option>
+					<option value="java">java</option>
+					<option value="spring boot">spring boot</option>
+					<option value="microservice">microservice</option>
+				</select>
+			</div>
+			<!-- Address -->
+			<div class="mb-3">
+				<label for="empAddr" class="form-label">Address:</label>
+				<textarea id="empAddr" name="empAddr" rows="4" class="form-control" required></textarea>
+			</div>
+			<!-- Submit Button -->
+			<div class="d-grid">
+				<button type="submit" class="btn btn-primary">Create</button>
+			</div>
+			<!-- Message -->
+			<div class="text-center text-success mt-3" th:text="${message}"></div>
+
+		</form>
+
+	</div>
+	<!-- Bootstrap JS (Optional, for interactivity) -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Data Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h3 class="text-center mb-4">Employee Data Page</h3>
+
+        <!-- Message -->
+        <div class="alert alert-success text-center" th:if="${message}" th:text="${message}"></div>
+
+        <!-- Employee Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Salary</th>
+                        <th>Department</th>
+                        <th>Address</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- for(Employee ob : list) -->
+                    <tr th:each="ob : ${list}">
+                        <td>[[${ob.empId}]]</td>
+                        <td>[[${ob.empName}]]</td>
+                        <td>[[${ob.empGen}]]</td>
+                        <td>[[${ob.empSal}]]</td>
+                        <td>[[${ob.empDept}]]</td>
+                        <td>[[${ob.empAddr}]]</td>
+                        <td>
+                            <a th:href="@{/employee/delete(id=${ob.empId})}" class="btn btn-danger btn-sm">Delete</a>
+                            <a th:href="@{/employee/edit(id=${ob.empId})}" class="btn btn-primary btn-sm">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Bootstrap JS (Optional, for interactivity) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
